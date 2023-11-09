@@ -15,7 +15,7 @@ ENV FLASK_APP "entrypoint:app"
 ENV FLASK_ENV "development"
 ENV APP_SETTINGS_MODULE "config.default"
 ENV DATABASE_URL: "postgresql://postgres:root@db/ejemplo_api_peliculas"
-ENV PORT 5001
+ENV PORT 5000
 
 #RUN flask db init
 #RUN flask db stamp head
@@ -26,14 +26,10 @@ ENV PORT 5001
 EXPOSE ${PORT}
 
 # Copiar el script de entrada y dar permisos de ejecución
-COPY entrypoint.sh /api-peliculas/entrypoint.sh
-RUN chmod +x /api-peliculas/entrypoint.sh
+#COPY entrypoint.sh /api-peliculas/entrypoint.sh
+#RUN chmod +x /api-peliculas/entrypoint.sh
 
 # Usar el script de entrada como punto de entrada
-ENTRYPOINT ["/api-peliculas/entrypoint.sh"]
+#ENTRYPOINT ["/api-peliculas/entrypoint.sh"]
 
-
-
-
-
-#CMD ["flask","run","--host","0.0.0.0"]
+CMD ["flask","run","--host","0.0.0.0"]
